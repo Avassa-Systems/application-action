@@ -8,7 +8,7 @@ password="$3"
 app_name="$4"
 app_spec="$5"
 
-curl -OL "$ct/supctl"
+curl -OL "https://$ct/supctl"
 chmod +x ./supctl
 
 echo "$password" | ./supctl --host="$ct" "do" login "$username"
