@@ -11,6 +11,6 @@ app_spec="$5"
 curl -OL "https://$ct/supctl"
 chmod +x ./supctl
 
-echo "$password" | ./supctl --host="$ct" "do" login "$username"
+echo "$password" | ./supctl --host="$ct" "do" login "$username" > /dev/null
 
 ./supctl replace applications "$app_name" < "$app_spec"
