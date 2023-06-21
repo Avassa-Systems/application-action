@@ -1,0 +1,27 @@
+name: 'Application'
+description: 'Creates a new or updates an existing application'
+inputs:
+  control-tower:
+    description: 'Path to the Control Tower, api.xxx.avassa.net'
+    required: true
+  username:
+    description: 'Username'
+    required: true
+  password:
+    description: 'Password'
+    required: true
+  application-name:
+    description: 'Application name'
+    required: true
+  specification:
+    description: 'Path to the application specification in the local repo'
+    required: true
+runs:
+  using: 'docker'
+  image: Dockerfile
+  args:
+    - ${{ inputs.control-tower }}
+    - ${{ inputs.username }}
+    - ${{ inputs.password }}
+    - ${{ inputs.application-name }}
+    - ${{ inputs.specification }}
